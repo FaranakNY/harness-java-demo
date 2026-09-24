@@ -1,1 +1,19 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: harness-java-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: harness-java-demo
+  template:
+    metadata:
+      labels:
+        app: harness-java-demo
+    spec:
+      containers:
+        - name: harness-java-demo
+          image: farany/harness-java-demo:latest
+          ports:
+            - containerPort: 8080
